@@ -1,0 +1,27 @@
+{% load static i18n  %}
+{% load sass_tags %}
+
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE|default:'en_us' }}">
+
+  <head>
+    <link href="{% sass_src 'css/style.scss' %}" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="module" src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'index-bundle.js' %}"></script>
+
+    <title>
+      {{ SITE_TITLE }} | {% block title %}{% endblock title %}
+    </title>
+    {% block extra_head %}
+    {% endblock extra_head %}
+  </head>
+
+  <body>
+    {% block layout %}
+    {% endblock layout %}
+  </body>
+</html>

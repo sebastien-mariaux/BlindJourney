@@ -1,0 +1,10 @@
+/db.sqlite3
+*__pycache__*
+/static/*
+/tmp/*
+
+classification.csv
+/db.sqlite3-journal
+/geckodriver.log
+/media/*
+/.coverage
