@@ -43,6 +43,17 @@ class Guess(models.Model):
         null=False,
         blank=False
     )
+    attempts_count = models.IntegerField(
+        default=0,
+        null=False,
+        blank=False
+    )
+    correct_count = models.IntegerField(
+        default=0,
+        null=False,
+        blank=False
+    )
+
 
     class Meta:
         verbose_name = 'guess'
@@ -50,3 +61,31 @@ class Guess(models.Model):
 
     def __str__(self):
         return str(self.prompt)
+
+    def success_ratio(self):
+        if self.attempts_count == 0:
+            return 0
+        return round(self.correct_count / self.attempts_count, 2)
+
+    @property
+    def difficulty(self):
+        if self.success_ratio() > 0.8:
+            return 0
+        if self.success_ratio() > 0.6:
+            return 1
+        if self.success_ratio() > 0.4:
+            return 2
+        if self.success_ratio() > 0.2:
+            return 3
+        return 4
+
+    @property
+    def difficulty_label(self):
+        return {
+            0: 'Easy',
+            1: 'Medium',
+            2: 'Hard',
+            3: 'Very Hard',
+            4: 'Impossible'
+        }[self.difficulty]
+

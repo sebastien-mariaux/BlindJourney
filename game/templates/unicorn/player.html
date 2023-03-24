@@ -6,6 +6,7 @@
         <header>
           {% include "header.html" %}
         </header>
+        <p class="description">Guess the song title used as Midjourney prompt...</p>
         <nav>
           <div class="category-link label">Categories:</div>
           <div class="category-link">
@@ -17,8 +18,8 @@
           </div>
           {% endfor %}
         </nav>
-        <p class="description">Guess the Midjourney prompt that generated this image...</p>
         <p class="description">Score: {{score}} / {{attempt_count}}</p>
+        <p class="description">Difficulty: {{guess.difficulty_label}}</p>
       </div>
       <div>
         {% if category %}
@@ -35,6 +36,9 @@
         </div>
         {% if success %}
         <button unicorn:click="next_guess">Next</button>
+        {% endif %}
+        {% if allow_skip %}
+        <button unicorn:click="skip">Skip</button>
         {% endif %}
       </div>
     </div>
