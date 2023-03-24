@@ -1,1 +1,24 @@
 {%  extends "simple.html" %}
+
+
+{% block content %}
+<h1>Guess the prompt!</h1>
+{% if category %}
+<p>Category: {{category}}</p>
+{% else %}
+<p>Toutes catégories confondues !</p>
+{% endif %}
+
+<div>
+  <img src="{{guess.image.url}}" alt="Image" width="500" height="500" />
+</div>
+
+<form action="" method="post">
+  {% csrf_token %}
+
+  <input type="text" id="attempt" name="attempt" placeholder="Guess the prompt..." style="width: 400px;" />
+  <input  type="hidden" id="id_guess" name="id_guess" value="{{guess.id}}" />
+  <input type="submit" value="Prompt it!" />
+</form>
+
+{% endblock %}

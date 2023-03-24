@@ -2,35 +2,39 @@
 {% load sass_tags %}
 
 {% block extra_head %}
-  {{ block.super }}
-  <link href="{% sass_src 'css/simple.scss' %}" rel="stylesheet" type="text/css" />
+{{ block.super }}
+<link href="{% sass_src 'css/simple.scss' %}" rel="stylesheet" type="text/css" />
 {% endblock extra_head %}
 
 {% block layout %}
-  {% comment %} {% block nav %}
-    {% include "nav.html" %}
-  {% endblock nav %} {% endcomment %}
+{% comment %} {% block nav %}
+{% include "nav.html" %}
+{% endblock nav %} {% endcomment %}
 
 {% block header %}
-  <header>
-    {% include "header.html" %}
-  </header>
+<header>
+  {% include "header.html" %}
+</header>
 {% endblock header %}
 
 <div class="main-container">
   {% block message %}
-    {% if messages %}
-    <div class="messages" data-controller='messages'>
-      {% for message in messages %}
-      <div class="message">
-        <i class="close icon"></i>
-        {{ message }}
-      </div>
-      {% endfor %}
+  {% if messages %}
+  <div class="messages" data-controller='messages'>
+    {% for message in messages %}
+    <div class="message">
+      <i class="close icon"></i>
+      {{ message }}
     </div>
-    {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
   {% endblock message %}
 
+  <div class='content-layout'>
+    {% block content %}
+    {% endblock content %}
+  </div>
 
 </div>
 {% endblock layout %}
