@@ -5,6 +5,5 @@ from .views import GameView
 
 
 urlpatterns = [
-    path('<slug:slug>', GameView.as_view(), name='index_category'),
     path('', GameView.as_view(), name='index'),
 ]

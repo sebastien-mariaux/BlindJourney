@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sass_processor',
+    "django_unicorn",
     'game',
 ]
 
@@ -134,6 +135,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "reverse_midjourney", 'static', 'reverse_midjourney'),
+    os.path.join(BASE_DIR, "game", 'static', 'game'),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

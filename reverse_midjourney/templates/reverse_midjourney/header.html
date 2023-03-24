@@ -2,19 +2,12 @@
 {% load sass_tags %}
 
 {% block extra_head %}
-  <link href="{% sass_src 'css/header.scss' %}" rel="stylesheet" type="text/css" />
+<link href="{% sass_src 'css/header.scss' %}" rel="stylesheet" type="text/css" />
 {% endblock extra_head %}
 
-<nav class="navigation">
-  <div class="left-menu">
-    <div class='navigation-item brand'>
-      <a href="{% url 'index' %}">
-        REVERSE MIDJOURNEY
-      </a>
-    </div>
-  </div>
+<a href="{% url 'index' %}">
+  REVERSE MIDJOURNEY
+</a>
 
-  <div class="right-menu">
 
-  </div>
 </nav>

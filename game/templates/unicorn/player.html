@@ -1,0 +1,49 @@
+<div>
+  {% csrf_token %}
+  <div class="two-col-container">
+    <div class="col left-col">
+      <div>
+        <header>
+          {% include "header.html" %}
+        </header>
+        <nav>
+          <div class="category-link label">Categories:</div>
+          <div class="category-link">
+            <button unicorn:click="change_category(None)">All</button>
+          </div>
+          {% for link_cat in categories %}
+          <div class="category-link">
+            <button unicorn:click="change_category({{link_cat.pk}})">{{link_cat.name}}</button>
+          </div>
+          {% endfor %}
+        </nav>
+        <p class="description">Guess the Midjourney prompt that generated this image...</p>
+        <p class="description">Score: {{score}} / {{attempt_count}}</p>
+      </div>
+      <div>
+        {% if category %}
+        <p class="category">Category: {{category}}</p>
+        {% else %}
+        <p class="category">Toutes catégories confondues !</p>
+        {% endif %}
+        <input type="hidden" id="category_id" unicorn:model="category_id" value="{{category_id}}" />
+        <input type="text" id="attempt" unicorn:model="attempt" placeholder="Guess the prompt..." />
+        <button type="submit" unicorn:click="make_guess({{guess.pk}})" {% if success %} disabled
+          {% endif %}>Guess</button>
+        <div class="results {% if success %}success{% else %}failure{% endif %}">
+          {{result}}
+        </div>
+        {% if success %}
+        <button unicorn:click="next_guess">Next</button>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <img src="{{guess.image.url}}" alt="Image" width="500" height="500" />
+      </div>
+    </div>
+  </div>
+
+
+</div>
