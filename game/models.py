@@ -36,6 +36,10 @@ class Guess(models.Model):
         null=False,
         blank=False
     )
+    description = models.TextField(
+        null=True,
+        blank=True
+    )
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
