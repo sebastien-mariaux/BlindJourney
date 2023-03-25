@@ -2,6 +2,7 @@ import os
 import uuid
 from django.db import models
 from django_extensions.db.fields import AutoSlugField
+from django.utils.safestring import mark_safe
 
 
 def update_filename(instance, _):
@@ -32,6 +33,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    def guesses_count(self):
+        return self.guesses.count()
 
 
 class Guess(models.Model):
@@ -111,3 +115,13 @@ class Guess(models.Model):
     def save_bad_guess(self):
         self.attempts_count += 1
         self.save()
+
+    def img_preview(self):
+        return mark_safe('<img src = "{url}" width = "300"/>'.format(
+             url = self.image.url
+         ))
+
+    def img_thumbnail(self):
+        return mark_safe('<img src = "{url}" width = "50"/>'.format(
+             url = self.image.url
+         ))
