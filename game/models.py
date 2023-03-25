@@ -4,6 +4,12 @@ from django.db import models
 from django_extensions.db.fields import AutoSlugField
 
 
+def update_filename(instance, _):
+    path = ""
+    return os.path.join(path, str(uuid.uuid4())
+                        )
+
+
 class Category(models.Model):
     name = models.CharField(
         max_length=255,
@@ -105,8 +111,3 @@ class Guess(models.Model):
     def save_bad_guess(self):
         self.attempts_count += 1
         self.save()
-
-    def update_filename(instance, _):
-        path = ""
-        return os.path.join(path, str(uuid.uuid4())
-                            )
