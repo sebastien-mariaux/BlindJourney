@@ -42,8 +42,9 @@ def test_ignore_trailing_space():
     assert is_same(first, second)
     assert is_same(second, first)
 
+
 def test_ignore_accents():
-    first =  "àáâãäåçèéêëìíîïñòóôõöùúûüýÿ"
+    first = "àáâãäåçèéêëìíîïñòóôõöùúûüýÿ"
     second = "aaaaaaceeeeiiiinooooouuuuyy"
     assert is_same(first, second)
     assert is_same(second, first)

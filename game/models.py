@@ -118,10 +118,10 @@ class Guess(models.Model):
 
     def img_preview(self):
         return mark_safe('<img src = "{url}" width = "300"/>'.format(
-             url = self.image.url
-         ))
+            url=self.image.url
+        ))
 
     def img_thumbnail(self):
         return mark_safe('<img src = "{url}" width = "50"/>'.format(
-             url = self.image.url
-         ))
+            url=self.image.url
+        ))

@@ -2,6 +2,7 @@ import string
 import re
 from unidecode import unidecode
 
+
 def is_same(first, second):
     if first == second:
         return True
