@@ -1,3 +1,5 @@
+import os
+import uuid
 from django.db import models
 from django_extensions.db.fields import AutoSlugField
 
@@ -35,6 +37,7 @@ class Guess(models.Model):
     image = models.ImageField(
         null=False,
         blank=False,
+        upload_to=update_filename
     )
     artist = models.CharField(
         max_length=255,
@@ -102,3 +105,8 @@ class Guess(models.Model):
     def save_bad_guess(self):
         self.attempts_count += 1
         self.save()
+
+    def update_filename(instance, _):
+        path = ""
+        return os.path.join(path, str(uuid.uuid4())
+                            )

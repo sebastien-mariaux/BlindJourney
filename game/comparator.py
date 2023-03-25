@@ -1,6 +1,7 @@
 import string
 import re
 
+
 def is_same(first, second):
     if first == second:
         return True

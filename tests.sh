@@ -1,6 +1,6 @@
 echo 'RUN TESTS...'
-coverage run --source='.' manage.py test
-
+# coverage run --source='.' manage.py test
+pytest
 
 echo 'GENERATE COVERAGE...'
 coverage report

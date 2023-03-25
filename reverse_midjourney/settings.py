@@ -158,6 +158,6 @@ LOCALE_PATHS = [
 LANGUAGE_CODE = 'fr'
 
 LANGUAGES = [
-    ('en','English'),
+    ('en', 'English'),
     ('fr', 'French')
 ]
