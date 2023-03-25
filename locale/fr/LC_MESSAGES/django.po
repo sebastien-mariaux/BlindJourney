@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-25 14:21+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: game/templates/unicorn/player.html:11
+msgid "Guess the song title used as Midjourney prompt..."
+msgstr "Devine le titre de la chanson utilisé comme prompt Midjourney..."
+
+#: game/templates/unicorn/player.html:13
+msgid "Categories:"
+msgstr "Catégories :"
+
+#: game/templates/unicorn/player.html:15
+msgid "All"
+msgstr "Toutes"
+
+#: game/templates/unicorn/player.html:23
+msgid "Score:"
+msgstr "Score :"
+
+#: game/templates/unicorn/player.html:24
+msgid "Difficulty:"
+msgstr "Difficulté :"
+
+#: game/templates/unicorn/player.html:28
+msgid "Category:"
+msgstr "Catégorie  :"
+
+#: game/templates/unicorn/player.html:30
+msgid "All categories!"
+msgstr "Toutes catégories !"
+
+#: game/templates/unicorn/player.html:38
+msgid "Guess"
+msgstr "Envoyer"
+
+#: game/templates/unicorn/player.html:46
+msgid "Well done!"
+msgstr "Bien joué !"
+
+#: game/templates/unicorn/player.html:46
+msgid "Wrong answer..."
+msgstr "Nope..."
+
+#: game/templates/unicorn/player.html:52
+msgid "Next"
+msgstr "Suivant"
+
+#: game/templates/unicorn/player.html:58
+msgid "Give-up"
+msgstr "Je ne sais pas"
+
+#: game/templates/unicorn/player.html:63
+msgid "Skip"
+msgstr "Passer"
+
+#: reverse_midjourney/models.py:7
+msgid "created at"
+msgstr ""
+
+#: reverse_midjourney/models.py:11
+msgid "updated at"
+msgstr ""

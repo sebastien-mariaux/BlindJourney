@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div>
   {% csrf_token %}
   <div class="two-col-container">
@@ -6,11 +8,11 @@
         <header>
           {% include "header.html" %}
         </header>
-        <p class="description">Guess the song title used as Midjourney prompt...</p>
+        <p class="description">{% trans 'Guess the song title used as Midjourney prompt...' %}</p>
         <nav>
-          <div class="category-link label">Categories:</div>
+          <div class="category-link label">{% trans  'Categories:' %}</div>
           <div class="category-link">
-            <button unicorn:click="change_category(None)">All</button>
+            <button unicorn:click="change_category(None)">{% trans  'All' %}</button>
           </div>
           {% for link_cat in categories %}
           <div class="category-link">
@@ -18,14 +20,14 @@
           </div>
           {% endfor %}
         </nav>
-        <p class="description">Score: {{score}} / {{attempt_count}}</p>
-        <p class="description">Difficulty: {{guess.difficulty_label}}</p>
+        <p class="description">{% trans 'Score:' %} {{score}} / {{attempt_count}}</p>
+        <p class="description">{% trans 'Difficulty:' %} {{guess.difficulty_label}}</p>
       </div>
       <div>
         {% if category %}
-        <p class="category">Category: {{category}}</p>
+        <p class="category">{% trans "Category:" %} {{category}}</p>
         {% else %}
-        <p class="category">Toutes catégories confondues !</p>
+        <p class="category">{% trans 'All categories!' %}</p>
         {% endif %}
 
         <div class='form'>
@@ -33,7 +35,7 @@
           <input type="text" class='big-input' id="attempt" unicorn:model="attempt" placeholder="Guess the prompt..." />
           {% if display.allow_guess %}
           <button type="submit" class="big-button" unicorn:click="make_guess({{guess.pk}})">
-            Guess
+            {% trans 'Guess' %}
           </button>
           {% endif %}
         </div>
@@ -41,24 +43,24 @@
         <div class='results-container'>
           {% if display.show_result %}
           <div class="results {% if display.success %}success{% else %}failure{% endif %}">
-            {% if display.success %} Correct! {% else %} Incorrect! {% endif %}
+            {% if display.success %} {% trans 'Well done!' %} {% else %} {% trans 'Wrong answer...' %} {% endif %}
           </div>
           {% endif %}
 
           {% if display.allow_next %}
           <div>
-            <button unicorn:click="next_guess" class='big-button'>Next</button>
+            <button unicorn:click="next_guess" class='big-button'>{% trans 'Next' %}</button>
           </div>
           {% endif %}
 
           {% if display.allow_give_up %}
           <div>
-            <button unicorn:click="give_up" class='big-button'>Give-up</button>
+            <button unicorn:click="give_up" class='big-button'>{% trans 'Give-up' %}</button>
           </div>
           {% endif %}
 
           {% if display.allow_skip %}
-          <button unicorn:click="skip" class='big-button'>Skip</button>
+          <button unicorn:click="skip" class='big-button'>{% trans 'Skip' %}</button>
           {% endif %}
         </div>
 
