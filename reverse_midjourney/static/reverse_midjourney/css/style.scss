@@ -1,8 +1,21 @@
 
+@font-face {
+  font-family: "NewRocker";
+  src: url('../fonts/NewRocker-Regular.otf');
+}
+
+@font-face {
+  font-family: "ImpactLabel";
+  src: url('../fonts/Impact_Label_Reversed.ttf');
+}
+
+
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "ImpactLabel", sans-serif;
   background-color: black;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .hidden {
