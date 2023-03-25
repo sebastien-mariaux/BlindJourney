@@ -1,4 +1,6 @@
 <div>
+  {{display}}
+
   {% csrf_token %}
   <div class="two-col-container">
     <div class="col left-col">
@@ -29,25 +31,42 @@
         {% endif %}
         <input type="hidden" id="category_id" unicorn:model="category_id" value="{{category_id}}" />
         <input type="text" id="attempt" unicorn:model="attempt" placeholder="Guess the prompt..." />
-        <button type="submit" unicorn:click="make_guess({{guess.pk}})" {% if success %} disabled
+        <button type="submit" unicorn:click="make_guess({{guess.pk}})" {% if not display.allow_guess %} disabled
           {% endif %}>Guess</button>
-        <div class="results {% if success %}success{% else %}failure{% endif %}">
-          {{result}}
+
+        {% if display.show_result %}
+        <div class="results {% if display.success %}success{% else %}failure{% endif %}">
+          {% if display.success %} Correct! {% else %} Incorrect! {% endif %}
         </div>
-        {% if success %}
-        <button unicorn:click="next_guess">Next</button>
         {% endif %}
-        {% if allow_skip %}
+
+        {% if display.allow_next %}
+        <div>
+          <button unicorn:click="next_guess">Next</button>
+        </div>
+        {% endif %}
+
+        {% if display.allow_give_up %}
+        <div>
+          <button unicorn:click="give_up">Give-up</button>
+        </div>
+        {% endif %}
+
+        {% if display.allow_skip %}
         <button unicorn:click="skip">Skip</button>
         {% endif %}
+
       </div>
     </div>
     <div class="col">
       <div>
         <img src="{{guess.image.url}}" alt="Image" width="500" height="500" />
+        {% if display.display_answer %}
+        <div class="answer">
+          <span class='title'>{{guess.prompt}}</span> ({{guess.artist}})
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>
-
-
 </div>

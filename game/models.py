@@ -36,9 +36,11 @@ class Guess(models.Model):
         null=False,
         blank=False
     )
-    description = models.TextField(
-        null=True,
-        blank=True
+    artist = models.CharField(
+        max_length=255,
+        null=False,
+        blank=False,
+        default='Unknown',
     )
     category = models.ForeignKey(
         Category,
@@ -93,3 +95,11 @@ class Guess(models.Model):
             4: 'Impossible'
         }[self.difficulty]
 
+    def save_good_guess(self):
+        self.correct_count += 1
+        self.attempts_count += 1
+        self.save()
+
+    def save_bad_guess(self):
+        self.attempts_count += 1
+        self.save()

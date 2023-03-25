@@ -5,7 +5,7 @@ from typing import List
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-SITE_TITLE = 'Reverse Midjourney'
+SITE_TITLE = 'BlindJourney'
 BASE_URL = "http://localhost:8000/"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
