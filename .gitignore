@@ -8,3 +8,4 @@ classification.csv
 /geckodriver.log
 /media/*
 /.coverage
+/reverse_midjourney/settings_prod.py
