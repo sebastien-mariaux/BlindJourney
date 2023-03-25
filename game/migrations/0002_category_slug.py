@@ -14,6 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='category',
             name='slug',
-            field=django_extensions.db.fields.AutoSlugField(blank=True, editable=False, max_length=255, populate_from='name', unique=True),
+            field=django_extensions.db.fields.AutoSlugField(
+                blank=True, editable=False, max_length=255, populate_from='name', unique=True),
         ),
     ]

@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255, unique=True)),
             ],
             options={
@@ -27,10 +28,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Guess',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('prompt', models.CharField(max_length=255)),
                 ('image', models.ImageField(upload_to='')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='guesses', to='game.category')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                 related_name='guesses', to='game.category')),
             ],
             options={
                 'verbose_name': 'guess',

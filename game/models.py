@@ -60,7 +60,6 @@ class Guess(models.Model):
         blank=False
     )
 
-
     class Meta:
         verbose_name = 'guess'
         verbose_name_plural = 'guesses'

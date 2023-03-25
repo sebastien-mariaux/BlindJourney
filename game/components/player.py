@@ -2,7 +2,6 @@ from django_unicorn.components import UnicornView
 from game.models import Guess, Category
 
 
-
 STATES = {
     'initial': {
         'success': False,
@@ -100,4 +99,3 @@ class PlayerView(UnicornView):
 
     def set_state(self, state):
         self.display = STATES[state]
-
