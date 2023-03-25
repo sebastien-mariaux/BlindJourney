@@ -34,7 +34,7 @@ class Guess(models.Model):
     )
     image = models.ImageField(
         null=False,
-        blank=False
+        blank=False,
     )
     artist = models.CharField(
         max_length=255,
