@@ -1,5 +1,6 @@
 from django_unicorn.components import UnicornView
 from game.models import Guess, Category
+from game.comparator import is_same
 
 
 STATES = {
@@ -57,7 +58,7 @@ class PlayerView(UnicornView):
 
     def make_guess(self, guess_id):
         guess = Guess.objects.get(id=guess_id)
-        if guess.prompt == self.attempt:
+        if is_same(guess.prompt, self.attempt):
             self.approve()
         else:
             self.disapprove()
