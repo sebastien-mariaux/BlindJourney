@@ -41,3 +41,9 @@ def test_ignore_trailing_space():
     second = "Happy Together"
     assert is_same(first, second)
     assert is_same(second, first)
+
+def test_ignore_accents():
+    first =  "àáâãäåçèéêëìíîïñòóôõöùúûüýÿ"
+    second = "aaaaaaceeeeiiiinooooouuuuyy"
+    assert is_same(first, second)
+    assert is_same(second, first)
