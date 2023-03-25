@@ -67,8 +67,10 @@ class PlayerView(UnicornView):
         self.next_guess()
 
     def next_guess(self):
-        self.guess = self.random_guess()
-        self.result = ''
+        current_guess = self.guess
+        while (new_guess := self.random_guess()) == current_guess:
+            pass
+        self.guess = new_guess
         self.attempt = ''
         self.set_state('initial')
 
