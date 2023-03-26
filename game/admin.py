@@ -16,6 +16,7 @@ class GuessAdmin(admin.ModelAdmin):
         'correct_count',
         'img_thumbnail')
     fields = ('prompt', 'artist', 'category', 'image', 'img_preview')
+    list_filter = ('category')
     readonly_fields = ['img_preview']
 
 
